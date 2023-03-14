@@ -18,7 +18,7 @@ class Color():
     
 color = Color()
 
-display = pygame.display.set_mode([screen_width, screen_height])
+display_surface = pygame.display.set_mode([screen_width, screen_height])
 events = pygame.event.get()
 
 delta_time = 0

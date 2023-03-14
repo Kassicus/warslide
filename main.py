@@ -2,18 +2,21 @@ import pygame
 
 import lib
 import debug
+import level
 
 pygame.init()
 
 class Game():
     def __init__(self):
-        self.screen = lib.display
+        self.screen = lib.display_surface
         pygame.display.set_caption("WarSlide")
 
         self.running = True
         self.clock = pygame.time.Clock()
 
         self.debug_interface = debug.DebugInterface()
+
+        self.test_level = level.Level()
         
     def run(self):
         while self.running:
@@ -38,11 +41,13 @@ class Game():
     def draw(self):
         self.screen.fill(lib.color.black)
 
+        self.test_level.draw()
+
         if self.debug_interface.active:
             self.debug_interface.draw()
         
     def update(self):
-
+        self.test_level.update()
         self.debug_interface.update(self.clock)
         pygame.display.update()
         lib.delta_time = self.clock.tick(lib.framerate) / 1000
