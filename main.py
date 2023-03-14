@@ -17,6 +17,7 @@ class Game():
         self.debug_interface = debug.DebugInterface()
 
         self.test_level = level.Level()
+        self.test_level.grid.highlight_adjacent(66)
         
     def run(self):
         while self.running:
@@ -45,6 +46,7 @@ class Game():
 
         if self.debug_interface.active:
             self.debug_interface.draw()
+            self.test_level.grid.highlight_adjacent(self.debug_interface.show_adjacent_tiles())
         
     def update(self):
         self.test_level.update()

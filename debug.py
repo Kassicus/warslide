@@ -37,6 +37,14 @@ class DebugInterface():
 
         return text, offset
     
+    def show_adjacent_tiles(self) -> int:
+        x, y = pygame.mouse.get_pos()
+
+        grid_x = round(x / 64)
+        grid_y = round(y / 64)
+
+        return int(str(str(grid_x) + str(grid_y)))
+    
     def toggle_active(self):
         if self.active:
             self.active = False
