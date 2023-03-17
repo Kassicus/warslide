@@ -17,7 +17,6 @@ class Game():
         self.debug_interface = debug.DebugInterface()
 
         self.test_level = level.Level()
-        self.test_level.grid.highlight_adjacent(66)
         
     def run(self):
         while self.running:
